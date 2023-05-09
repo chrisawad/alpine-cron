@@ -1,0 +1,11 @@
+version: "3.7"
+services:
+  cron:
+    build: .
+    image: cawad/alpine-cron:latest
+    environment:
+      - CRON_MINUTE=*/1
+      - CRON_HOUR=*
+    volumes:
+      - ./script.sh:/script.sh
+    init: true
