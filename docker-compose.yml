@@ -2,7 +2,7 @@ version: "3.7"
 services:
   cron:
     build: .
-    image: cawad/alpine-cron:latest
+    image: cawad/alpine-cron:$VERSION
     environment:
       - CRON_MINUTE=*/1
       - CRON_HOUR=*

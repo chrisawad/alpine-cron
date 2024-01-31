@@ -16,4 +16,11 @@ fi
 cat $CRON_FILE
 crontab $CRON_FILE
 
+if [ ! -f "/run.sh" ]
+then
+	echo "#!/bin/bash
+$CRON_WRAPPER \"$CRON_SCRIPT\"" > /run.sh
+	chmod +x /run.sh
+fi
+
 exec "$@"

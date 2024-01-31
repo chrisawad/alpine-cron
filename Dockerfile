@@ -10,8 +10,8 @@ ENV CRON_SCRIPT=/script.sh
 ENV CRON_FILE=/cron_file
 ENV CRON_WRAPPER=/wrapper.sh
 ENV CRON_AFTER=/after.sh
-VOLUME [/script.sh]
-RUN apk add --no-cache bash apk-cron git openssh-client postgresql-client pigz tzdata pv s-nail curl
+RUN apk add --no-cache bash apk-cron git openssh-client postgresql-client pigz tzdata pv s-nail curl python3 
+RUN apk add --no-cache py3-sqlalchemy py3-pandas py3-psycopg2 py3-openpyxl py3-paramiko py3-requests py3-mysqlclient
 COPY entrypoint.sh /entrypoint.sh
 COPY wrapper.sh /wrapper.sh
 ENTRYPOINT ["/entrypoint.sh"]
